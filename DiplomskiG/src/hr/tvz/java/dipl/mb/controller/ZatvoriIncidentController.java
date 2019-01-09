@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -31,6 +32,8 @@ public class ZatvoriIncidentController {
 	
 	@FXML
 	TextField minZavrsetka;
+	
+	TableView<Incident> tabView;
 	
 //	LocalDate zavDatum;
 //	
@@ -91,7 +94,7 @@ public class ZatvoriIncidentController {
 			MojPopUp.porukaPopUp(AlertType.INFORMATION,"Inforativna poruka", "Incident sa brojem naloga: "+iKraj.getBrojNaloga()+
 					"je uspješno zatvoren i dodan u bazu podataka!!");
 
-			
+			tabView.getItems().remove(pocetniI);
 			pozornica.close();
 		} catch (Exception e) {
 			MojPopUp.porukaPopUp(AlertType.WARNING, "GREŠKA!!","Poruka: "+ e.getMessage()+"Uzrok: "+e.getCause());
@@ -145,6 +148,12 @@ public class ZatvoriIncidentController {
 	
 		Stage pozornica = (Stage) satZavrsetka.getScene().getWindow();
 		pozornica.close();
+	}
+
+
+	public void dohvatiTabView(TableView<Incident> tabIncidenti) {
+		tabView = tabIncidenti;
+		
 	}
 
 //	public LocalDate getZavDatum() {

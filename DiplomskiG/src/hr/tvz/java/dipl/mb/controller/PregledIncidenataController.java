@@ -247,7 +247,7 @@ public class PregledIncidenataController {
 				ZatvoriIncidentController controllerZ = loadFxml.<ZatvoriIncidentController>getController();
 				
 				controllerZ.dohvatiOdabraniIncident(odabrani);
-				
+				controllerZ.dohvatiTabView(tabIncidenti);
 				
 				
 				Scene noviScene = new Scene(novi);
@@ -255,8 +255,8 @@ public class PregledIncidenataController {
 				noviStage.setScene(noviScene);
 				noviStage.show();
 				
-				tabIncidenti.getItems().remove(
-						tabIncidenti.getSelectionModel().getSelectedItem());
+//				tabIncidenti.getItems().remove(
+//						tabIncidenti.getSelectionModel().getSelectedItem());
 //				
 //				LocalDate datTest = controllerZ.getZavDatum();
 //				LocalTime timeTest = controllerZ.getZavVrijeme();

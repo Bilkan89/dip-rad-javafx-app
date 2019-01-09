@@ -85,26 +85,26 @@ public class PregledKorisnikaController implements MojPopUp{
 				new PropertyValueFactory<Korisnik, Adresa>("adresaKorisnika"));
 		//ako nema set cell factory onda ispise ugurubo...
 		
-//		drzavaK.setCellFactory(new Callback<TableColumn<Korisnik,Adresa>, TableCell<Korisnik,Adresa>>() {
-//			
-//			@Override
-//			public TableCell<Korisnik, Adresa> call(TableColumn<Korisnik, Adresa> param) {
-//				
-//				final TableCell<Korisnik, Adresa> cell = new TableCell<Korisnik, Adresa>(){
-//					
-//					@Override
-//					public void updateItem(final Adresa item, boolean empty){
-//						super.updateItem(item, empty);
-//						if(empty){
-//							this.setText("");
-//						}else{
-//							this.setText(item.getDrzava());
-//						}						
-//					};					
-//				};				
-//				return cell;
-//			}
-//		});
+		drzavaK.setCellFactory(new Callback<TableColumn<Korisnik,Adresa>, TableCell<Korisnik,Adresa>>() {
+			
+			@Override
+			public TableCell<Korisnik, Adresa> call(TableColumn<Korisnik, Adresa> param) {
+				
+				final TableCell<Korisnik, Adresa> cell = new TableCell<Korisnik, Adresa>(){
+					
+					@Override
+					public void updateItem(final Adresa item, boolean empty){
+						super.updateItem(item, empty);
+						if(empty){
+							this.setText("");
+						}else{
+							this.setText(item.getDrzava());
+						}						
+					};					
+				};				
+				return cell;
+			}
+		});
 		
 		
 		gradK.setCellValueFactory(

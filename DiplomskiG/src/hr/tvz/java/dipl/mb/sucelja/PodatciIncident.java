@@ -140,7 +140,25 @@ public interface PodatciIncident {
 		}		
 	}
 	
-
+	static List<Integer> dohvatiBrojeveIncidenta() throws Exception{
+		
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+		
+		List<Integer> brojeviIncidenta = new ArrayList<Integer>();
+		
+		String dohvatiBrojeve = "SELECT broj_naloga FROM EVIDENTIRANJE.INCIDENT_POCETAK";
+		
+		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiBrojeve);
+		ResultSet dohvati = prepS.executeQuery();
+		
+		while(dohvati.next()) {
+			
+			brojeviIncidenta.add(dohvati.getInt("broj_naloga"));
+			
+		}
+		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
+		return brojeviIncidenta;
+	}
 	
 	
 }

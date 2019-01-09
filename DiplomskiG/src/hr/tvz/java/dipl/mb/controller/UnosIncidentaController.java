@@ -80,36 +80,42 @@ public class UnosIncidentaController {
 		for(TextField textF : provjeraTextFielda) {
 			if(textF.getText().isEmpty()) {
 				MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
-				//alarmPraznoPolje();
 				return;
 			}
 		}
 		
 		if(prioritetChoiceBox.getValue().equals(null)) {
 			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nije odabran prioritet!!");
-			//alarmPraznoPolje();
 			return;
 		}
 	
 		if(vrstaAlarmaChoiceBox.getValue().equals(null)) {
 			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nije odabrana vrsta alarma!!");
-			//alarmPraznoPolje();
 			return;
 		}
 		
 		if(katIncidentaChoiceBox.getValue().equals(null)) {
 			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nije odabrana kategorija incidenta!!");
-			//alarmPraznoPolje();
 			return;
 		}
 		if (datumPocetka.getValue() == null) {
 			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
-			//alarmPraznoPolje();
 			return;
 		}
 		
+		
+		
 		//----------------------------------------------------------------------------------------------
 		try {
+			
+			List<Integer> listaNaloga =  PodatciIncident.dohvatiBrojeveIncidenta();
+			for(Integer brojN : listaNaloga) {
+				if(brojN == Integer.valueOf(brNaloga.getText())) {
+					MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nalog pod brojem: "+brNaloga.getText()+" postoji! Molim unesite drugi broj!");
+					return;
+				}
+			}
+			
 			
 			Stage pozornica = (Stage) brNaloga.getScene().getWindow();
 			

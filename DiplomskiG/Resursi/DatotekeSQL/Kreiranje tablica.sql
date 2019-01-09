@@ -42,8 +42,8 @@ INSERT INTO EVIDENTIRANJE.PRIORITET (naziv) VALUES ('Niski');
 CREATE TABLE EVIDENTIRANJE.ADRESA(
 adresa_id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
 drzava VARCHAR(30) NOT NULL,
-grad INTEGER NOT NULL,/*gre�ka nije INTEGER nego VARCHAR(30) - promjena izvr�ena*/
-ulica INTEGER NOT NULL, /*gre�ka nije INTEGER nego VARCHAR(30) - promjena izvr�ena*/
+grad VARCHAR(30) NOT NULL,/*gre�ka nije INTEGER nego VARCHAR(30) - promjena izvr�ena*/
+ulica VARCHAR(30) NOT NULL, /*gre�ka nije INTEGER nego VARCHAR(30) - promjena izvr�ena*/
 kucni_broj INTEGER NOT NULL,
 korisnik_id INTEGER NOT NULL,
 CONSTRAINT adresa_id_pk PRIMARY KEY (adresa_id),
