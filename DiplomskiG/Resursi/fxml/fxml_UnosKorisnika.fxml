@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.UnosKorisnikaController">
+   <center>
+      <GridPane prefHeight="401.0" prefWidth="575.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="165.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="231.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="84.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="65.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="99.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="121.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="156.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="147.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="157.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="165.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="60.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="197.0" minHeight="0.0" prefHeight="92.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="28.0" minHeight="7.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Prezime korisnika:" GridPane.rowIndex="3">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Ime korisnika:" GridPane.rowIndex="2">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" text="Adresa" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Label text="Kontakt broj:" GridPane.rowIndex="8">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Korisničko ime:" GridPane.rowIndex="9">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Lozinka:" GridPane.rowIndex="10">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label text="Potvrdi lozinku:" GridPane.rowIndex="11">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="imeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="prezimeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="korisnickoImeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="9" />            
+            <PasswordField fx:id="lozinkaKorisnika" promptText="Enter Password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <PasswordField fx:id="potvrdaLozinkeKorisnika" promptText="Repeat password" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Grad:">
+                     <padding>
+                        <Insets left="28.0" right="4.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="gradKorisnika" prefHeight="25.0" prefWidth="159.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Label text="Država: ">
+                     <padding>
+                        <Insets left="15.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="drzavaKorisnika" prefHeight="25.0" prefWidth="157.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <Label text="Ulica:">
+                     <padding>
+                        <Insets left="28.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="ulicaKorisnika" prefHeight="25.0" prefWidth="158.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <children>
+                  <Label text="Kućni broj:">
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="kucniBrojKorisnika" prefHeight="25.0" prefWidth="52.0" />
+               </children>
+            </HBox>
+            <TextField fx:id="kontaktBrojKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Napomena:" GridPane.rowIndex="12">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </Label>
+            <TextArea fx:id="napomenaKorisnika" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </TextArea>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="231.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#obrisiPodatke" text="Obriši podatke">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#odustani" text="Odustani">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#unesiPodatke" text="Unesi podatke">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <TextField fx:id="korisnicki_id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="ID korisnika:" GridPane.rowIndex="1">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

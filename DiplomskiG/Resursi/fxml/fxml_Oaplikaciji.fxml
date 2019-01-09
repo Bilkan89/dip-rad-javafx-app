@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="420.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.OaplikacijiController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="322.0" prefWidth="320.0">
+               <children>
+                  <Label prefHeight="50.0" prefWidth="320.0" text="Aplikacija za evidentiranje incidenata na mrežnoj opremi i infrastrukturi" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" prefHeight="54.0" prefWidth="244.0" text="Aplikacija je kreirana od strane studenta spec. dipl. stručnog studija informatike na Tehničkom Veleučilištu u Zagrebu.  " textAlignment="JUSTIFY" wrapText="true" />
+                  <Label prefHeight="26.0" prefWidth="244.0" text="Trenutna verzija aplikacija je 1.0 " wrapText="true" />
+                  <Label prefHeight="40.0" prefWidth="244.0" text="Aplikacija je napravljena za svrhu diplomskog rada." wrapText="true" />
+                  <VBox alignment="CENTER" prefHeight="47.0" prefWidth="320.0">
+                     <children>
+                        <Label text="Kontakt:   " />
+                        <Label text="mbilic@tvz.hr;  " />
+                        <Label text="bilicmat89@gmail.com;" />
+                        <Label text="https://github.com/Bilkan89/dipl" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="okBtn" mnemonicParsing="false" onAction="#okBtnMetoda" text="Ok">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <Pane prefHeight="50.0" prefWidth="400.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" layoutX="78.0" layoutY="6.0" prefHeight="36.0" prefWidth="244.0" text="Copyright Matej Bilić, 2017. All right reserved." textAlignment="CENTER" wrapText="true" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <Pane prefHeight="30.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Pane prefHeight="290.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="256.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

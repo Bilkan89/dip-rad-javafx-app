@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="200.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PomocController">
+   <top>
+      <Pane prefHeight="20.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Pane prefHeight="110.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="110.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="20.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Pomoć je na putu...">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Za sve nepravilinosti prilikom rada sa aplikacijom molim da se pošalje zapis loga na autorov kontak email: " textAlignment="CENTER" wrapText="true" />
+            <Label text="bilicmat89@gmail.com">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnNode" mnemonicParsing="false" onAction="#okBtn" text="Ok">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

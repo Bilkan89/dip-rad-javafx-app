@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import impl.org.controlsfx.skin.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane fx:id="borderPaneGlavni" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PocetniZaslonController">
+   <top>
+      <Pane prefHeight="27.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="1366.0">
+               <children>
+                  <MenuBar prefHeight="26.0" prefWidth="1366.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Izbornik">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#pocetniZaslon" text="Početni zaslon" />
+                              <MenuItem mnemonicParsing="false" onAction="#dodavanjeKorisnika" text="Dodavanje novog korisnika..." />
+                              <MenuItem mnemonicParsing="false" onAction="#pregledKorisnika" text="Pregled korisnika..." />
+                              <Menu mnemonicParsing="false" text="Postavke...">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Promjena boje pozadine" />
+                                    <RadioMenuItem mnemonicParsing="false" selected="true" text="Zvuk uključen/isključen" />
+                                 </items>
+                              </Menu>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Odjavi se" />
+                          <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Izađi" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Incidenti">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#pregledIncidenata" text="Pregled incidenata" />
+                          <MenuItem mnemonicParsing="false" onAction="#unosIncidenta" text="Evidentiranje novog incidenta..." />
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Statistička izvješća">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#izvjesceUkupno" text="Ukupno incidenata" />
+                            <MenuItem mnemonicParsing="false" onAction="#izvjescePoKateg" text="Incidenti po kategoriji uređaja" />
+                              <MenuItem mnemonicParsing="false" onAction="#izvjescePoRjesavanju" text="Incidenti po vremenu rješavanja" />
+                          </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Pomoć">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#pomocProzor" text="Pomoć" />
+                          <MenuItem mnemonicParsing="false" onAction="#oAplikaciji" text="O aplikaciji" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Button fx:id="closeButton1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#closeProgram" text="X">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Pane fx:id="panePocetni" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="pozdravLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="32.0" prefHeight="47.0" prefWidth="1400.0" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="9.0" prefHeight="12.0" prefWidth="80.0" text="DASHBORD">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </center>
+   <bottom>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1366.0" style="-fx-background-color: #e2e2e2;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1366.0" spacing="50.0">
+               <children>
+                  <Label text="Date and day in week">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="|">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="0.0" prefWidth="275.0" text="Monitoring computer network incident">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="|">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="npr Matej Bilić">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
