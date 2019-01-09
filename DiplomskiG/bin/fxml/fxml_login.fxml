@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="239.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.LoginController">
+   <children>
+      <Pane fx:id="paneNode" layoutX="8.0" layoutY="8.0" prefHeight="225.0" prefWidth="285.0" style="-fx-background-color: #ffffff;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button alignment="CENTER" layoutX="251.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeLoginWindow" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #FF1100; -fx-font-weight: bold;" text="X" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Label fx:id="hiddenLabel" layoutX="10.0" layoutY="5.0" prefHeight="20.0" prefWidth="251.0" text="20.1.2017 18:55h">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="77.0" layoutY="45.0" prefHeight="25.0" prefWidth="88.0" style="-fx-font-weight: bold;" text="User name:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="tfUsername" layoutX="76.0" layoutY="77.0" promptText="Enter User name" />
+      <Label layoutX="77.0" layoutY="107.0" prefHeight="25.0" prefWidth="88.0" style="-fx-font-weight: bold;" text="Password:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <PasswordField fx:id="passField" layoutX="76.0" layoutY="138.0" promptText="Enter Password" />
+      <Button fx:id="loginButton" layoutX="104.0" layoutY="180.0" mnemonicParsing="false" onAction="#loginMetoda" prefHeight="25.0" prefWidth="94.0" text="Login" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="lib/" kind="src" path="Resursi"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<accessrules>
+			<accessrule kind="accessible" pattern="javafx/**"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="Resursi/lib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="Resursi/lib/logback-classic-1.0.7.jar"/>
+	<classpathentry kind="lib" path="Resursi/lib/logback-core-1.0.7.jar"/>
+	<classpathentry kind="lib" path="Resursi/lib/h2-1.4.194.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

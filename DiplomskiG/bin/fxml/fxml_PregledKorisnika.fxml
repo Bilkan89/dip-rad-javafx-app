@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PregledKorisnikaController">
+   <center>
+      <TableView fx:id="viewKorisnika" editable="true" prefHeight="326.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="imeK" prefWidth="92.0" text="Ime korisnika" />
+          <TableColumn fx:id="prezimeK" prefWidth="106.0" text="Prezime korisnika" />
+            <TableColumn prefWidth="310.0" text="Adresa korisnika">
+               <columns>
+                  <TableColumn fx:id="drzavaK" prefWidth="66.0" text="Država" />
+                  <TableColumn fx:id="gradK" prefWidth="73.0" text="Grad" />
+                  <TableColumn fx:id="ulicaK" prefWidth="69.0" text="Ulica" />
+                  <TableColumn fx:id="kucniBrojK" prefWidth="82.0" text="Kućni broj" />
+               </columns>
+            </TableColumn>
+            <TableColumn fx:id="kontaktBrojK" prefWidth="82.0" text="Kontak broj " />
+            <TableColumn fx:id="korisnickoImeK" prefWidth="89.0" text="Korisničko ime" />
+            <TableColumn fx:id="napomenaK" prefWidth="70.0" text="Napomena" />
+            <TableColumn fx:id="datumKreiranja" prefWidth="115.0" text="Datum kreiranja" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#obrisiKorisnika" text="Obriši označeno" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </center>
+   <top>
+      <Pane prefHeight="70.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="355.0" layoutY="21.0" text="PREGLED KORISNIKA">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="100.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="900.0">
+               <children>
+                  <TextField fx:id="pretraziTextF" alignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="pretraziButton" mnemonicParsing="false" onMouseEntered="#ukljuciToolTip" onAction="#pretraziBtn" text="Pretraži">
+                     <tooltip>
+                        <Tooltip fx:id="toolTip" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+            <Label text="Skriveni label - status">
+               <padding>
+                  <Insets left="50.0" top="40.0" />
+               </padding>
+            </Label>
+         </children>
+      </Pane>
+   </bottom>
+   <left>
+      <Pane prefHeight="318.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="318.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1372.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.IzvjescePoKategorijiController">
+   <top>
+      <Pane prefHeight="142.0" prefWidth="1372.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="554.0" layoutY="56.0" text="Incidenti po kategoriji uređaja">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="447.0" prefWidth="96.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="447.0" prefWidth="108.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="147.0" prefWidth="1372.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="148.0" prefWidth="1372.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="50.0" layoutY="50.0" text="Prikaz vrijednosti:" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="skriveni" text=" " />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1322.0" spacing="15.0">
+                     <children>
+                        <Label text="Prikaži od:" />
+                        <DatePicker fx:id="datumPocetak" prefWidth="100.0" />
+                        <Label text="do" />
+                        <DatePicker fx:id="datumKraj" prefWidth="100.0" />
+                        <Button mnemonicParsing="false" onAction="#PrikaziBtn" text="Prikaži">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <Pane prefHeight="379.0" prefWidth="1168.0" BorderPane.alignment="CENTER">
+         <children>
+            <BarChart fx:id="dijagramBarChart" legendSide="RIGHT" legendVisible="false" prefHeight="411.0" prefWidth="1167.0">
+              <xAxis>
+                <CategoryAxis animated="false" prefHeight="24.0" prefWidth="1086.0" tickLength="0.0" fx:id="xKategorijeAxis">
+                     <tickLabelFont>
+                        <Font size="12.0" />
+                     </tickLabelFont></CategoryAxis>
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yIncidentiAxis" label=" Broj incidenata" side="LEFT">
+                     <tickLabelFont>
+                        <Font size="12.0" />
+                     </tickLabelFont></NumberAxis>
+              </yAxis>
+            </BarChart>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

@@ -1,0 +1,8 @@
+/* JavaFX CSS */
+#tabIncidenti .table-column {
+  -fx-alignment: CENTER;
+}
+
+#idRijesen{
+	-fx-font-weight: bold;
+}

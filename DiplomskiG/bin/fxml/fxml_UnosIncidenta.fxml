@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.UnosIncidentaController">
+   <center>
+      <GridPane prefHeight="497.0" prefWidth="1132.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="185.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="3.0" prefWidth="20.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="0.0" prefWidth="20.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="20.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="25.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="17.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="26.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Broj naloga:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <TextField fx:id="brNaloga" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Početak incidenta" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <children>
+                  <Label text="Datum:">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Sat:">
+                     <HBox.margin>
+                        <Insets left="55.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Min:">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <DatePicker fx:id="datumPocetka" prefHeight="25.0" prefWidth="106.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <TextField fx:id="satPocetka" prefHeight="25.0" prefWidth="30.0">
+                     <HBox.margin>
+                        <Insets right="2.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":" />
+                  <TextField fx:id="minPocetka" prefHeight="25.0" prefWidth="30.0">
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Label text="Kategorija incidenta:" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label text="Zahvačena oprema:" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Label text="Vrsta alarma:" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+            <Label text="Napomena:" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+            <Label text="Incident rješava:" GridPane.columnIndex="13" GridPane.rowIndex="1" />
+            <Label text="Prioritet:" GridPane.columnIndex="15" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="katIncidentaChoiceBox" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField fx:id="zahvacenaOprema" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="vrstaAlarmaChoiceBox" prefWidth="150.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <TextField fx:id="napomena" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+            <TextField fx:id="incidentRjesava" GridPane.columnIndex="13" GridPane.rowIndex="2" />
+             <ChoiceBox fx:id="prioritetChoiceBox" prefWidth="150.0" GridPane.columnIndex="15" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <Pane prefHeight="52.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="357.0" layoutY="13.0" text="Evidentiranje novog incidenta">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="58.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="60.0" prefWidth="950.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#obrisiPodatke" text="Obriši podatke" />
+                  <Button mnemonicParsing="false" onAction="#unesiIncident" text="Unesi incident" />
+                  <Button mnemonicParsing="false" onAction="#odustaniUnos" text="Odustani" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

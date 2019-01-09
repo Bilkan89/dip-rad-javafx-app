@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="698.0" prefWidth="1372.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PregledIncidenataController">
+   <top>
+      <Pane prefHeight="30.0" prefWidth="1372.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Pane prefHeight="569.0" prefWidth="35.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="569.0" prefWidth="35.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="99.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="99.0" prefWidth="1372.0">
+               <children>
+                  <Label prefHeight="41.0" prefWidth="94.0" text="Opcije filtriranja: ">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" prefHeight="32.0" prefWidth="1372.0" spacing="15.0">
+                     <children>
+                        <CheckBox fx:id="rijeseniCheckBox" mnemonicParsing="false" selected="true" text="Riješeni incidenti" />
+                        <CheckBox fx:id="nerijeseniCheckBox" mnemonicParsing="false" selected="true" text="Neriješeni incidenti" />
+                        <CheckBox fx:id="tkCheckBox" mnemonicParsing="false" selected="true" text="Telekomunikacijski incidenti" />
+                        <CheckBox fx:id="mrezniCheckBox" mnemonicParsing="false" selected="true" text="Mrežni incidenti" />
+                        <CheckBox fx:id="serverCheckBox" mnemonicParsing="false" selected="true" text="Incidenti na poslužiteljima" />
+                        <Button mnemonicParsing="false" onAction="#filtrirajBtn" text="Filtriraj" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <TableView id="tabIncidenti" fx:id="tabIncidenti" prefHeight="200.0" prefWidth="200.0" styleClass="table-column" stylesheets="@../css/TablicaIncident.css" BorderPane.alignment="CENTER">
+        <columns>
+         	<TableColumn fx:id="brojNaloga" text="Broj naloga" />
+          	<TableColumn prefWidth="110.0" text="Početak incidenta">
+               <columns>
+                  <TableColumn fx:id="datumPocetak" prefWidth="75.0" text="Datum" />
+                  <TableColumn fx:id="pocetakSat" prefWidth="75.0" text="Sat" />
+               </columns></TableColumn>
+            <TableColumn prefWidth="110.0" text="Kraj incidenta">
+               <columns>
+                  <TableColumn fx:id="krajDatum" prefWidth="75.0" text="Datum" />
+                  <TableColumn fx:id="krajVrijeme" prefWidth="75.0" text="Sat" />
+               </columns></TableColumn>
+            <TableColumn prefWidth="125.0" text="Trajanje incidenta">
+               <columns>
+                  <TableColumn fx:id="trajanjeDatum" prefWidth="75.0" text="Dana" />
+                  <TableColumn fx:id="trajanjeVrijeme" prefWidth="75.0" text="Sati" />
+               </columns></TableColumn>
+            <TableColumn fx:id="vrstaIncidenta" prefWidth="125.0" text="Kategorija incidenta" />
+            <TableColumn fx:id="zahvacenaOprema" prefWidth="125.0" text="Zahvačena oprema" />
+            <TableColumn fx:id="vrstaAlarma" prefWidth="90.0" text="Vrsta alarma" />
+            <TableColumn fx:id="napomena" prefWidth="191.0" text="Napomena" />
+            <TableColumn fx:id="incidentRjesava" prefWidth="110.0" text="Incident rješava" />
+            <TableColumn id="idRijesen" fx:id="rijesenIncident" prefWidth="50.0" text="Riješen" />
+            <TableColumn fx:id="prioritet" text="Prioritet" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#pozoviZatvaranjeIncidenta" text="Zatvori incident" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </center>
+</BorderPane>
