@@ -19,7 +19,7 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Label fx:id="hiddenLabel" layoutX="10.0" layoutY="5.0" prefHeight="20.0" prefWidth="251.0" text="20.1.2017 18:55h">
+            <Label fx:id="hiddenLabel" layoutX="10.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" text="20.1.2017 18:55h">
                <font>
                   <Font size="11.0" />
                </font>

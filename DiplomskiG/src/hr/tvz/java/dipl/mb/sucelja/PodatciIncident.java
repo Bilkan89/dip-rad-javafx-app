@@ -1,8 +1,10 @@
 package hr.tvz.java.dipl.mb.sucelja;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,6 +160,85 @@ public interface PodatciIncident {
 		}
 		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
 		return brojeviIncidenta;
+	}
+
+	static List<Integer> dohvatiBrojeveKorisnika() throws Exception {
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+		
+		List<Integer> idKorisnika = new ArrayList<Integer>();
+		
+		String dohvatiBrojeve = "SELECT korisnik_id FROM EVIDENTIRANJE.KORISNIK";
+		
+		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiBrojeve);
+		ResultSet dohvati = prepS.executeQuery();
+		
+		while(dohvati.next()) {
+			
+			idKorisnika.add(dohvati.getInt("korisnik_id"));
+			
+		}
+		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
+		return idKorisnika;
+	}
+
+	static int dohvatiMrezneIncidente() throws Exception{
+				
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+		String dohvatiUkupno = "SELECT COUNT(kategorija_id) FROM EVIDENTIRANJE.INCIDENT_POCETAK WHERE kategorija_id = 1;";
+		
+		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiUkupno);
+		ResultSet dohvati = prepS.executeQuery();
+		int ukupno = 0;
+		while(dohvati.next()) {
+			
+			ukupno = dohvati.getInt(1);
+			
+		}
+		
+		return ukupno;
+	}
+
+	
+	
+	static int dohvatiTelekomIncidente() throws Exception{
+					
+			Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+			String dohvatiUkupno = "SELECT COUNT(kategorija_id) FROM EVIDENTIRANJE.INCIDENT_POCETAK WHERE kategorija_id = 3;";
+			
+			PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiUkupno);
+			ResultSet dohvati = prepS.executeQuery();
+			int ukupno = 0;
+			while(dohvati.next()) {				
+				ukupno = dohvati.getInt(1);				
+			}			
+			return ukupno;
+		
+	}
+
+	static int dohvatiPosluzIncidente() throws Exception{
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+		String dohvatiUkupno = "SELECT COUNT(kategorija_id) FROM EVIDENTIRANJE.INCIDENT_POCETAK WHERE kategorija_id = 2;";
+		
+		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiUkupno);
+		ResultSet dohvati = prepS.executeQuery();
+		int ukupno = 0;
+		while(dohvati.next()) {				
+			ukupno = dohvati.getInt(1);				
+		}			
+		return ukupno;
+	}
+
+	static List<LocalDate> dohvatiDatumIncidenata() throws Exception{
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+		String dohvatiUkupno = "SELECT pocetak_d FROM EVIDENTIRANJE.INCIDENT_POCETAK;";
+		
+		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiUkupno);
+		ResultSet dohvati = prepS.executeQuery();
+		List<LocalDate> ukupno = new ArrayList<LocalDate>();
+		while(dohvati.next()) {				
+			ukupno.add(KonverzijaVremena.sqlDateToLocalDate(dohvati.getDate("pocetak_d")));				
+		}			
+		return ukupno;
 	}
 	
 	

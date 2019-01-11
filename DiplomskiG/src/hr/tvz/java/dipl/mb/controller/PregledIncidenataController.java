@@ -2,6 +2,7 @@ package hr.tvz.java.dipl.mb.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -198,9 +199,55 @@ public class PregledIncidenataController {
 		
 		
 		try {
-			List<Incident> testListaPocetak = PodatciIncident.dohvatiIncidente();;
-
+			List<Incident> testListaPocetak = PodatciIncident.dohvatiIncidente();
+			List<Incident> sortiraniIncidneti = new ArrayList<Incident>();
 			
+		//	for(Incident incident :  testListaPocetak) {
+			
+			//------------------------------------------------------------------------------------------
+				if(mrezniCheckBox.isSelected()) {
+					for(Incident incident :  testListaPocetak) {
+						if(incident.getKategIncidenta() == KategorijeIncidenata.MREŽNI)
+							sortiraniIncidneti.add(incident);
+					}					
+				}
+				
+				
+				if(rijeseniCheckBox.isSelected()) {
+					for(Incident incident :  testListaPocetak) {
+						if(incident.getRijesen() == "DA")
+							sortiraniIncidneti.add(incident);
+					}					
+				}
+				
+				
+				if(nerijeseniCheckBox.isSelected()) {
+					for(Incident incident :  testListaPocetak) {
+						if(incident.getRijesen() == "NE")
+							sortiraniIncidneti.add(incident);
+					}					
+				}
+				
+				if(tkCheckBox.isSelected()) {
+					for(Incident incident :  testListaPocetak) {
+						if(incident.getKategIncidenta() == KategorijeIncidenata.TELEKOMUNIKACIJSKI)
+							sortiraniIncidneti.add(incident);
+					}					
+				}
+				
+				if(serverCheckBox.isSelected()) {
+					for(Incident incident :  testListaPocetak) {
+						if(incident.getKategIncidenta() == KategorijeIncidenata.POSLUŽITELJSKI)
+							sortiraniIncidneti.add(incident);
+					}					
+				}
+				
+				sortiraniIncidneti = sortiraniIncidneti.stream().distinct().collect(Collectors.toList());
+			//------------------------------------------------------------------------------------------
+		
+				
+				
+				
 			
 //			List<Casopis> DohvaceniCasopisi;
 //			try {
@@ -217,7 +264,7 @@ public class PregledIncidenataController {
 			
 			
 			
-			ObservableList<Incident> listaZaPrikaz = FXCollections.observableArrayList(testListaPocetak);	
+			ObservableList<Incident> listaZaPrikaz = FXCollections.observableArrayList(sortiraniIncidneti);	
 			
 			tabIncidenti.setItems(listaZaPrikaz);
 			
@@ -305,16 +352,6 @@ public class PregledIncidenataController {
 	}
 	
 	
-	/**
-	 * 
-	 * Incident odabrani = tabIncidenti.getSelectionModel().getSelectedItem();
-		if(odabrani instanceof KrajIncidenta) {
-			MojPopUp.porukaPopUp(AlertType.WARNING,"Upozorenje!", "Incident sa brojem naloga:  "+odabrani.getBrojNaloga()+" je već zatvoren!" );
-		}else {
-			
-			
-		}
-	 * 
-	 */
+	
 	
 }

@@ -112,6 +112,7 @@ public class UnosIncidentaController {
 			for(Integer brojN : listaNaloga) {
 				if(brojN == Integer.valueOf(brNaloga.getText())) {
 					MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nalog pod brojem: "+brNaloga.getText()+" postoji! Molim unesite drugi broj!");
+					brNaloga.clear();
 					return;
 				}
 			}

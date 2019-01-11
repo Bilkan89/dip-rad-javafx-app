@@ -11,6 +11,7 @@ import java.util.List;
 import hr.tvz.java.dipl.mb.entitet.Adresa;
 import hr.tvz.java.dipl.mb.entitet.Korisnik;
 import hr.tvz.java.dipl.mb.sucelja.MojPopUp;
+import hr.tvz.java.dipl.mb.sucelja.PodatciIncident;
 import hr.tvz.java.dipl.mb.sucelja.PodatciKorisnika;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -91,6 +92,15 @@ public class UnosKorisnikaController {
 		}
 		
 		try {
+			
+			List<Integer> listaIdKorisnika =  PodatciIncident.dohvatiBrojeveKorisnika();
+			for(Integer id : listaIdKorisnika) {
+				if(id == Integer.valueOf(korisnicki_id.getText())) {
+					MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Korisnik pod id brojem: "+korisnicki_id.getText()+" postoji! Molim unesite drugi broj!");
+					korisnicki_id.clear();
+					return;
+				}
+			}
 			
 			Stage pozornica = (Stage) imeKorisnika.getScene().getWindow();
 			

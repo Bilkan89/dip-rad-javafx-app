@@ -101,10 +101,30 @@ public interface PodatciKorisnika {
 		stmt.setInt(3, korisnik.getIdKorisnika());
 		stmt.executeUpdate();
 		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
-		System.out.println("Unos u bazu završio.. ili završila metoda unosKorisnika..");
+		
 	}
-	
-	
+
+	static Boolean provjeraPristupa(String korisnickoIme, String lozinka) throws Exception {
+		
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
+				
+		String dohvatiPristup = "SELECT korisnicko_ime, lozinka FROM EVIDENTIRANJE.PRISTUP WHERE KORISNICKO_IME = '"+korisnickoIme+"'"; 
+		//String dohvatiPristup = "SELECT korisnicko_ime, lozinka FROM EVIDENTIRANJE.PRISTUP WHERE KORISNICKO_IME = 'mbilic'"; 
+		//System.out.println(dohvatiPristup);
+		
+		PreparedStatement prepStatment = vezaSaBazom.prepareStatement(dohvatiPristup);
+		ResultSet resSet = prepStatment.executeQuery();
+		
+		
+		//System.out.println(resSet.getString("korisnicko_ime")+"/"+resSet.getString("lozinka"));
+		
+		if(resSet.next()) {
+			if (resSet.getString("korisnicko_ime").equals(korisnickoIme) && resSet.getString("lozinka").equals(lozinka)) {
+				return true;
+			}		
+		}	
+		return false;
+	}
 	
 /*
  * public static void spremiClanaUBazu(Clan clan) throws Exception {

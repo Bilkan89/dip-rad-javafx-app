@@ -64,21 +64,9 @@
                   <Insets right="5.0" />
                </padding>
             </Label>
+            <TextField fx:id="korisnicki_id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="imeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="prezimeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="korisnickoImeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="9" />            
-            <PasswordField fx:id="lozinkaKorisnika" promptText="Enter Password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <PasswordField fx:id="potvrdaLozinkeKorisnika" promptText="Repeat password" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <children>
-                  <Label text="Grad:">
-                     <padding>
-                        <Insets left="28.0" right="4.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="gradKorisnika" prefHeight="25.0" prefWidth="159.0" />
-               </children>
-            </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <Label text="Država: ">
@@ -88,8 +76,18 @@
                   </Label>
                   <TextField fx:id="drzavaKorisnika" prefHeight="25.0" prefWidth="157.0" />
                </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            </HBox>   
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Grad:">
+                     <padding>
+                        <Insets left="28.0" right="4.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="gradKorisnika" prefHeight="25.0" prefWidth="159.0" />
+               </children>
+            </HBox> 
+             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Label text="Ulica:">
                      <padding>
@@ -109,7 +107,10 @@
                   <TextField fx:id="kucniBrojKorisnika" prefHeight="25.0" prefWidth="52.0" />
                </children>
             </HBox>
-            <TextField fx:id="kontaktBrojKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="kontaktBrojKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="8" />         
+            <TextField fx:id="korisnickoImeKorisnika" GridPane.columnIndex="1" GridPane.rowIndex="9" />            
+            <PasswordField fx:id="lozinkaKorisnika" promptText="Enter Password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <PasswordField fx:id="potvrdaLozinkeKorisnika" promptText="Repeat password" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <Label text="Napomena:" GridPane.rowIndex="12">
                <padding>
                   <Insets right="5.0" />
@@ -146,7 +147,7 @@
                   </Button>
                </children>
             </VBox>
-            <TextField fx:id="korisnicki_id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            
             <Label text="ID korisnika:" GridPane.rowIndex="1">
                <padding>
                   <Insets right="5.0" />

@@ -11,27 +11,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane fx:id="borderPaneGlavni" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PocetniZaslonController">
+<BorderPane fx:id="borderPaneGlavni" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.java.dipl.mb.controller.PocetniZaslonController">
    <top>
-      <Pane prefHeight="27.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: #e2e2e2;" BorderPane.alignment="CENTER">
          <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="1366.0">
+            <HBox fx:id="testHboxTop" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity">
                <children>
-                  <MenuBar prefHeight="26.0" prefWidth="1366.0">
+                  <MenuBar fx:id="glavniMenu" maxHeight="-Infinity" maxWidth="-Infinity">
                     <menus>
                       <Menu mnemonicParsing="false" text="Izbornik">
                         <items>
                               <MenuItem mnemonicParsing="false" onAction="#pocetniZaslon" text="Početni zaslon" />
                               <MenuItem mnemonicParsing="false" onAction="#dodavanjeKorisnika" text="Dodavanje novog korisnika..." />
                               <MenuItem mnemonicParsing="false" onAction="#pregledKorisnika" text="Pregled korisnika..." />
-                              <Menu mnemonicParsing="false" text="Postavke...">
-                                 <items>
-                                    <MenuItem mnemonicParsing="false" text="Promjena boje pozadine" />
-                                    <RadioMenuItem mnemonicParsing="false" selected="true" text="Zvuk uključen/isključen" />
-                                 </items>
-                              </Menu>
                               <SeparatorMenuItem mnemonicParsing="false" />
-                              <MenuItem mnemonicParsing="false" text="Odjavi se" />
+                              <MenuItem mnemonicParsing="false" onAction="#otvoriFullScreen" text="Puni zaslon" />
+                              <MenuItem mnemonicParsing="false" onAction="#izlazFullScreen" text="Izlaz iz punog zaslona" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
                           <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Izađi" />
                         </items>
                       </Menu>
@@ -45,7 +41,6 @@
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#izvjesceUkupno" text="Ukupno incidenata" />
                             <MenuItem mnemonicParsing="false" onAction="#izvjescePoKateg" text="Incidenti po kategoriji uređaja" />
-                              <MenuItem mnemonicParsing="false" onAction="#izvjescePoRjesavanju" text="Incidenti po vremenu rješavanja" />
                           </items>
                         </Menu>
                       <Menu mnemonicParsing="false" text="Pomoć">
@@ -56,37 +51,49 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <Button fx:id="closeButton1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#closeProgram" text="X">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
          </children>
       </Pane>
    </top>
    <center>
-      <Pane fx:id="panePocetni" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="panePocetni" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="pozdravLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="32.0" prefHeight="47.0" prefWidth="1400.0" textAlignment="CENTER">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label layoutX="13.0" layoutY="9.0" prefHeight="12.0" prefWidth="80.0" text="DASHBORD">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
+            <VBox fx:id="srednjiVBox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="716.0" prefWidth="1366.0" spacing="50.0" style="-fx-background-color: silver;">
+               <children>
+                  <Label fx:id="pozdravLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="1400.0" text=" " textAlignment="CENTER">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Pred vama je aplikacija sa kojom se evidentiraju incidenti na mrežnoj opremi. ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="107.0" text=" Aplikacija omogučava nakon evidentiranja incidenta pregledvanje statističkih podataka. ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="362.0" layoutY="333.0" text="Aplikacija je izrađena u svrhu diplomskog rada.">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="150.0" />
+               </padding>
+            </VBox>
          </children></Pane>
    </center>
    <bottom>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1366.0" style="-fx-background-color: #e2e2e2;" BorderPane.alignment="CENTER">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: #e2e2e2;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1366.0" spacing="50.0">
+            <HBox fx:id="hboxBottom" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="50.0">
                <children>
-                  <Label text="Date and day in week">
+                  <Label fx:id="labelDoljeLijevo" text="Date and day in week">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -99,7 +106,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="0.0" prefWidth="275.0" text="Monitoring computer network incident">
+                  <Label text="Monitoring computer network incident">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -112,7 +119,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="npr Matej Bilić">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" text="Autor: Matej Bilić">
                      <font>
                         <Font size="16.0" />
                      </font>

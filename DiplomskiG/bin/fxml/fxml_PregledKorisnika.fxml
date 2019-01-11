@@ -56,18 +56,13 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="pretraziButton" mnemonicParsing="false" onMouseEntered="#ukljuciToolTip" onAction="#pretraziBtn" text="Pretraži">
+                  <Button fx:id="pretraziButton" mnemonicParsing="false" onAction="#pretraziBtn" onMouseEntered="#ukljuciToolTip" text="Pretraži">
                      <tooltip>
                         <Tooltip fx:id="toolTip" />
                      </tooltip>
                   </Button>
                </children>
             </HBox>
-            <Label text="Skriveni label - status">
-               <padding>
-                  <Insets left="50.0" top="40.0" />
-               </padding>
-            </Label>
          </children>
       </Pane>
    </bottom>

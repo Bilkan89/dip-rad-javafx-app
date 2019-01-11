@@ -14,8 +14,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -28,26 +31,90 @@ public class PocetniZaslonController {
 	private Pane panePocetni;
 	@FXML
 	private Label pozdravLabel;
+	
+	@FXML
+	private Label labelDoljeLijevo;
 
 	@FXML
+	private	MenuBar glavniMenu;
+	@FXML
 	private BorderPane borderPaneGlavni;
+	
+	@FXML
+	private HBox testHboxTop;
+	
+	@FXML
+	private VBox srednjiVBox;
+	
+	@FXML
+	private HBox hboxBottom;
+	
+	//Stage stage = (Stage) pozdravLabel.getScene().getWindow();
 
 	@FXML
 	private void initialize() {
 		pozdravMetoda();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		//glavniMenu.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
+		double width = screenSize.getWidth();
+		double height = screenSize.getHeight();
+		//borderPaneGlavni.getTop().setMaxSize(width,height);
+//		borderPaneGlavni.prefWidth(width);
+//		borderPaneGlavni.prefHeight(height);
+//		borderPaneGlavni.getTop().prefWidth(width);
+		//System.out.println(stage.getWidth());
+		//glavniMenu.prefWidth(stage.getWidth());
+//		testHboxTop.prefWidth(width);
+		
+//		borderPaneGlavni.prefWidthProperty().bind(borderPaneGlavni.getScene().widthProperty());
+//		borderPaneGlavni.prefHeightProperty().bind(borderPaneGlavni.getScene().heightProperty());
+//		
+//		glavniMenu.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
+		//glavniMenu.prefHeightProperty().bind(borderPaneGlavni.getScene().heightProperty());
+		//borderPaneGlavni.prefHeight(height);
+		setWidthMetoda();
+		System.out.println("width:"+width+"height:"+height);
+		System.out.println("border width:"+borderPaneGlavni.getPrefWidth());
+		System.out.println("Hbox top width:"+testHboxTop.getPrefWidth());
+		System.out.println("Menu width:"+glavniMenu.getPrefWidth());
+		
 	}
 
 	
+
+	
+
+
 
 	@FXML
 	private void pocetniZaslon() {
 		borderPaneGlavni.setCenter(null);//da ne stavalj centar na centar, centar u centar
 		borderPaneGlavni.setCenter(panePocetni);
+		//testHboxTop.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		//glavniMenu.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
-		borderPaneGlavni.setMaxSize(width,height);
+		//borderPaneGlavni.getTop().setMaxSize(width,height);
+		//borderPaneGlavni.prefWidthProperty().bind(borderPaneGlavni.getScene().widthProperty());
+		//borderPaneGlavni.prefHeightProperty().bind(borderPaneGlavni.getScene().heightProperty());
 		
+		//glavniMenu.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
+		//testHboxTop.prefWidthProperty().bind(borderPaneGlavni.prefWidthProperty());
+		setWidthMetoda();
+//		glavniMenu.prefWidthProperty().bind(borderPaneGlavni.getScene().widthProperty());
+//		glavniMenu.prefHeightProperty().bind(borderPaneGlavni.getScene().heightProperty());
+		//borderPaneGlavni.prefHeight(height);
+		//borderPaneGlavni.getTop().prefWidth(width);
+		//glavniMenu.prefWidth(width);
+		//testHboxTop.prefWidth(width);
+		
+		//pc-width:1440.0height:900.0
+		System.out.println("width:"+width+"height:"+height);
+		System.out.println("Hbox top width:"+testHboxTop.getPrefWidth());
+		System.out.println("Menu width:"+glavniMenu.getPrefWidth());
+		System.out.println("borderPane width:"+borderPaneGlavni.getPrefWidth());
+		System.out.println("borderPane height:"+borderPaneGlavni.getHeight());
 	}
 
 	@FXML
@@ -100,7 +167,7 @@ public class PocetniZaslonController {
 	@FXML
 	private void closeProgram() {
 		// Platform.exit(); //odluciti koji je bolji na�in...
-		Stage stage = (Stage) closeButton1.getScene().getWindow();
+		Stage stage = (Stage) borderPaneGlavni.getScene().getWindow();
 		stage.close();
 	}
 
@@ -134,7 +201,7 @@ public class PocetniZaslonController {
 	}
 
 	private void pozdravMetoda() {
-		String username = "Matej Bilić";
+		//String username = "Matej Bilić";
 		DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
 		String dan_u_Tjedanu = "Pon";
 		switch (dayOfWeek) {
@@ -162,11 +229,41 @@ public class PocetniZaslonController {
 		}
 		String datum = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 		
-		pozdravLabel.setText(" Dobro došli, "+username+" danas je "+datum+", "+dan_u_Tjedanu);
+		pozdravLabel.setText(" Dobro došli, danas je "+datum+", "+dan_u_Tjedanu);
 		//System.out.println(" Dobro došli, "+username+" danas je "+LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))+", "+dayOfWeek);
 		//System.out.println(pozdravLabel.getText());
+		labelDoljeLijevo.setText("Danas je "+datum+", "+dan_u_Tjedanu);
+	}
+
+	private void setWidthMetoda() {
+		
+//		borderPaneGlavni.prefWidthProperty().bind(borderPaneGlavni.getScene().getWindow().widthProperty());
+//		borderPaneGlavni.prefHeightProperty().bind(borderPaneGlavni.getScene().getWindow().heightProperty());
+		
+		//glavniMenu.prefWidth((borderPaneGlavni.getScene().getWidth()));
+		//testHboxTop.prefWidthProperty().bind(borderPaneGlavni.widthProperty());
+		glavniMenu.prefWidthProperty().bind(borderPaneGlavni.widthProperty());
+		srednjiVBox.prefWidthProperty().bind(borderPaneGlavni.widthProperty());
+		hboxBottom.prefWidthProperty().bind(borderPaneGlavni.widthProperty());
+		
 		
 	}
 
+	@FXML
+	private void otvoriFullScreen() {
+		Stage window = (Stage) borderPaneGlavni.getScene().getWindow();
+		//System.out.println("test");
+		window.setFullScreenExitHint("Za izlazak iz punog zaslona pritisnite tipku 'ESC'");
+		window.setFullScreen(true);
+	}
 
+	@FXML
+	private void izlazFullScreen() {
+		Stage window = (Stage) borderPaneGlavni.getScene().getWindow();
+		//System.out.println("test");
+		//window.setFullScreenExitHint("Za izlazak iz punog zaslona pritisnite tipku 'ESC'");
+		window.setFullScreen(false);
+		window.setMaximized(true);
+	}
+	
 }

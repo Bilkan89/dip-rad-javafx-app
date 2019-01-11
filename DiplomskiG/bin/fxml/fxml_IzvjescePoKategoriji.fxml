@@ -31,18 +31,16 @@
          <children>
             <VBox alignment="CENTER" prefHeight="148.0" prefWidth="1372.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="28.0" prefWidth="200.0" spacing="15.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="50.0" layoutY="50.0" text="Prikaz vrijednosti:" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="skriveni" text=" " />
+                        <Label fx:id="skriveni">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1322.0" spacing="15.0">
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1322.0">
                      <children>
-                        <Label text="Prikaži od:" />
-                        <DatePicker fx:id="datumPocetak" prefWidth="100.0" />
-                        <Label text="do" />
-                        <DatePicker fx:id="datumKraj" prefWidth="100.0" />
                         <Button mnemonicParsing="false" onAction="#PrikaziBtn" text="Prikaži">
                            <HBox.margin>
                               <Insets left="5.0" />
@@ -57,7 +55,7 @@
    <center>
       <Pane prefHeight="379.0" prefWidth="1168.0" BorderPane.alignment="CENTER">
          <children>
-            <BarChart fx:id="dijagramBarChart" legendSide="RIGHT" legendVisible="false" prefHeight="411.0" prefWidth="1167.0">
+            <BarChart fx:id="dijagramBarChart" horizontalZeroLineVisible="false" legendSide="RIGHT" legendVisible="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="411.0" prefWidth="1167.0">
               <xAxis>
                 <CategoryAxis animated="false" prefHeight="24.0" prefWidth="1086.0" tickLength="0.0" fx:id="xKategorijeAxis">
                      <tickLabelFont>
@@ -65,7 +63,7 @@
                      </tickLabelFont></CategoryAxis>
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="yIncidentiAxis" label=" Broj incidenata" side="LEFT">
+                <NumberAxis fx:id="yIncidentiAxis" animated="false" autoRanging="false" label=" Broj incidenata" minorTickCount="0" minorTickLength="10.0" minorTickVisible="false" side="LEFT" tickLabelGap="5.0" tickLength="10.0" tickUnit="1.0" upperBound="15.0">
                      <tickLabelFont>
                         <Font size="12.0" />
                      </tickLabelFont></NumberAxis>

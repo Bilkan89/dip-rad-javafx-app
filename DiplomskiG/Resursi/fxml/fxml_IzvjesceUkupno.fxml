@@ -27,16 +27,14 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="28.0" prefWidth="1372.0" spacing="15.0">
                      <children>
-                        <Label text="Prikaz vrijednosti:" />
-                        <Label fx:id="skriveni" text=" " />
+                        <Label fx:id="skriveni" text=" ">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1372.0" spacing="15.0">
                      <children>
-                        <Label text="Prikaži od:" />
-                        <DatePicker prefHeight="25.0" prefWidth="100.0" />
-                        <Label text="do:" />
-                        <DatePicker prefHeight="25.0" prefWidth="100.0" />
                         <Button mnemonicParsing="false" onAction="#prikaziBtn" text="Prikaži">
                            <HBox.margin>
                               <Insets left="5.0" />
@@ -62,12 +60,15 @@
               <xAxis>
                 <CategoryAxis animated="false" prefHeight="10.0" prefWidth="698.0" side="BOTTOM" tickLabelRotation="45.0">
                      <tickLabelFont>
-                        <Font size="10.0" />
+                        <Font size="14.0" />
                      </tickLabelFont>
                   </CategoryAxis>
               </xAxis>
               <yAxis>
-                <NumberAxis label="Broj incidenata" side="LEFT" />
+                <NumberAxis fx:id="numberAxis" autoRanging="false" label="Broj incidenata" minorTickCount="0" minorTickLength="10.0" minorTickVisible="false" side="LEFT" tickLabelGap="5.0" tickLength="10.0" tickUnit="1.0" upperBound="20.0">
+                     <tickLabelFont>
+                        <Font size="14.0" />
+                     </tickLabelFont></NumberAxis>
               </yAxis>
             </LineChart>
          </children>
