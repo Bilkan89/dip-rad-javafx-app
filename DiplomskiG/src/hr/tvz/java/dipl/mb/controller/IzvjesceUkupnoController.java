@@ -1,12 +1,9 @@
 package hr.tvz.java.dipl.mb.controller;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
-
 import hr.tvz.java.dipl.mb.sucelja.MojPopUp;
 import hr.tvz.java.dipl.mb.sucelja.PodatciIncident;
 import javafx.event.ActionEvent;
@@ -37,11 +34,7 @@ public class IzvjesceUkupnoController {
 		
 		try {
 			dijagram.getData().clear();
-			Random rand = new Random();
-			int broj1 = rand.nextInt(50);
-			int broj2 = rand.nextInt(50);
-			int broj3 = rand.nextInt(50);
-			int broj4 = rand.nextInt(50);
+			
 			
 			
 			List<LocalDate> datumiIncidenata = PodatciIncident.dohvatiDatumIncidenata();

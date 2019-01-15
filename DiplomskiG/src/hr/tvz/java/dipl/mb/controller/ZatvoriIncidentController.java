@@ -1,6 +1,5 @@
 package hr.tvz.java.dipl.mb.controller;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,14 +10,10 @@ import hr.tvz.java.dipl.mb.sucelja.KonverzijaVremena;
 import hr.tvz.java.dipl.mb.sucelja.MojPopUp;
 import hr.tvz.java.dipl.mb.sucelja.PodatciIncident;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ZatvoriIncidentController {

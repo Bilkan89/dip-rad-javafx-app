@@ -2,22 +2,16 @@ package hr.tvz.java.dipl.mb.controller;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-
 import hr.tvz.java.dipl.mb.glavna.Main;
 import hr.tvz.java.dipl.mb.sucelja.MojPopUp;
 import hr.tvz.java.dipl.mb.sucelja.PodatciKorisnika;
-//import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;

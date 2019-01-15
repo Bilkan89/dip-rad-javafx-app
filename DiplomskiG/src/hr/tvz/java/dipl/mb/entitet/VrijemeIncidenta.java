@@ -2,9 +2,7 @@ package hr.tvz.java.dipl.mb.entitet;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class VrijemeIncidenta {
@@ -40,10 +38,10 @@ public class VrijemeIncidenta {
 	
 	public int TrajanjeIncidenta(){
 		
-		Period trajanje = Period.between(datumPocetka, datumZavrsetka) ;
-		int trajanjeGodina = trajanje.getYears();
-		int trajanjeMjeseci = trajanje.getMonths();
-		int trajanjeDana = trajanje. getDays();
+//		Period trajanje = Period.between(datumPocetka, datumZavrsetka) ;
+//		int trajanjeGodina = trajanje.getYears();
+//		int trajanjeMjeseci = trajanje.getMonths();
+//		int trajanjeDana = trajanje. getDays();
 		
 		Duration ns = Duration.between(satPocetka, satZavrsetka);
 		

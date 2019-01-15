@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import hr.tvz.java.dipl.mb.glavna.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
