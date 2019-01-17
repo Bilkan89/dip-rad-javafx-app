@@ -29,7 +29,7 @@ public class IzvjescePoKategorijiController {
 	}
 
 	@FXML
-	private void PrikaziBtn(ActionEvent event) {
+	private void PrikaziBtn() {
 
 		try {
 			int mrežniIncidentiUkupno = PodatciIncident.dohvatiMrezneIncidente();
@@ -45,20 +45,14 @@ public class IzvjescePoKategorijiController {
 			serija1.getData().add(new XYChart.Data<String, Number>("Poslužitelji", posluziteljskiIncidentiUkupno));
 			serija1.getData().add(new XYChart.Data<String, Number>("Ukupno incidenata", sveZajedno));
 			
-//			dijagramBarChart.getXAxis().getca;
 			dijagramBarChart.getData().add(serija1);
-//			double catSpace = xAxis.getCategorySpacing();
-//			double avilableBarSpace = catSpace - (bc.getCategoryGap() + bc.getBarGap());
-//			double barWidth = (avilableBarSpace / bc.getData().size()) - bc.getBarGap();
-			//BarChart works on the basis that both barGap (gap between bars in the same category) and categoryGap
-			//(gap between bars in separate categories) 
+
 			dijagramBarChart.setBarGap(1);
 			dijagramBarChart.setCategoryGap(199);
 			
 			yIncidentiAxis.setUpperBound(sveZajedno+1);
 			yIncidentiAxis.setTickUnit(1);
-			yIncidentiAxis.setMinorTickVisible(false);
-			
+			yIncidentiAxis.setMinorTickVisible(false);			
 
 			for (final XYChart.Data<String, Number> vrijednost : serija1.getData()) {
 				vrijednost.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, new EventHandler<MouseEvent>() {
@@ -72,7 +66,7 @@ public class IzvjescePoKategorijiController {
 					}
 				});
 
-//				/set null skriveni label
+//				/Prilikom izlaska sa mišem briše se tekst unutar Labela.
 //				vrijednost.getNode().addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, new EventHandler<MouseEvent>() {
 //
 //					@Override
@@ -81,6 +75,7 @@ public class IzvjescePoKategorijiController {
 //
 //					}
 //				});
+				
 			}
 		} catch (Exception e) {
 			MojPopUp.porukaPopUp(AlertType.ERROR, "GREŠKA!", "Poruka:"+e.getMessage()+" Uzrok:"+e.getCause());

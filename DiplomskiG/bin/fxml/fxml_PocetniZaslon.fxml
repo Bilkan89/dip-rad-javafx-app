@@ -71,7 +71,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="73.0" layoutY="107.0" text=" Aplikacija omogučava nakon evidentiranja incidenta pregledvanje statističkih podataka. ">
+                  <Label layoutX="73.0" layoutY="107.0" text=" Aplikacija omogućava nakon evidentiranja incidenta pregledvanje statističkih podataka. ">
                      <font>
                         <Font size="17.0" />
                      </font>

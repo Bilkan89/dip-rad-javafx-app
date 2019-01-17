@@ -126,31 +126,6 @@ public interface PodatciKorisnika {
 		return false;
 	}
 	
-/*
- * public static void spremiClanaUBazu(Clan clan) throws Exception {
 
-		Connection vezaSaBazom = KomunikacijaSaBazom.connectingToDataBase();
-		String sqlUpit = "INSERT INTO RAZVOJ.CLAN (oib, ime, prezime ) VALUES (?,?,?)";
-		PreparedStatement stmt = vezaSaBazom.prepareStatement(sqlUpit);
-		stmt.setInt(1, clan.getOib());
-		stmt.setString(2, clan.getIme());
-		stmt.setString(3, clan.getPrezime());
-		stmt.executeUpdate();
-
-		KomunikacijaSaBazom.closingConnectionToDataBase(vezaSaBazom);
-		
-		
-		INSERT INTO EVIDENTIRANJE.KORISNIK(ime,prezime,kontakt_broj,napomena,datum_kreiranja,korisnik_id) values 
-	('Pero','Peric',0911234567,'Operator aplikacije','2018-10-25',2);
-
-		INSERT INTO EVIDENTIRANJE.ADRESA(drzava,grad,ulica,kucni_broj, korisnik_id)
-			VALUES ('Hrvatska','Zagreb','Gruska',22,2);
-	
-		INSERT INTO EVIDENTIRANJE.PRISTUP(korisnicko_ime,lozinka,korisnik_id)
-			VALUES ('pperic','hdklaid',2);
-
-	} 
- * 
- */
 	
 }
