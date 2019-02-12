@@ -16,31 +16,22 @@ public class KomunikacijaSaBazom {
 		public static Connection konekcijaDB() {
 			Connection vezaSaBazom = null;
 			try {
-				
-				Properties svojstva = new Properties();
-	
+				Properties svojstva = new Properties();	
 				final FileReader citacDatoteke = new FileReader(DATABASE_PROPERTIES_FILE);
-				svojstva.load(citacDatoteke);
-	
+				svojstva.load(citacDatoteke);	
 				String urlBaze = svojstva.getProperty("bazaPodatakaURL");
 				String korisnickoIme = svojstva.getProperty("korisnickoIme");
-				String lozinka = svojstva.getProperty("lozinka");
-	
-				
+				String lozinka = svojstva.getProperty("lozinka");				
 				vezaSaBazom = DriverManager.getConnection(urlBaze, korisnickoIme, lozinka);
-				return vezaSaBazom;
-				
+				return vezaSaBazom;				
 			}catch (Exception e) {
-				MojPopUp.porukaPopUp(AlertType.WARNING,"Upozorenje!", "Konekcija sa bazom podataka nije moguca!"+e.getMessage());
+				MojPopUp.porukaPopUp(AlertType.WARNING,"Upozorenje!", 
+						"Konekcija sa bazom podataka nije moguæa! "+e.getMessage());
 				return vezaSaBazom;
 			}
-
 		}
-
 		public static void zatvoriKonekciju(Connection vezaSaBazom) throws SQLException{
 			vezaSaBazom.close();			
-		}
-
-		
+		}		
 }
 

@@ -19,17 +19,10 @@ public class PocetakIncidenta extends Incident{
 		this.pocetakDatum = pocetakDatum;		
 		this.pocetakVrijeme = pocetakVrijeme;
 	}
-
 	public LocalDate getPocetakDatum() {
 		return pocetakDatum;
 	}
-
 	public LocalTime getPocetakVrijeme() {
 		return pocetakVrijeme;
-	}
-	
-
-	
-	
-	
+	}	
 }

@@ -28,7 +28,7 @@
                               <MenuItem mnemonicParsing="false" onAction="#otvoriFullScreen" text="Puni zaslon" />
                               <MenuItem mnemonicParsing="false" onAction="#izlazFullScreen" text="Izlaz iz punog zaslona" />
                               <SeparatorMenuItem mnemonicParsing="false" />
-                          <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Izađi" />
+                          <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Izlaz" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Incidenti">
@@ -39,8 +39,8 @@
                       </Menu>
                         <Menu mnemonicParsing="false" text="Statistička izvješća">
                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#izvjesceUkupno" text="Ukupno incidenata" />
-                            <MenuItem mnemonicParsing="false" onAction="#izvjescePoKateg" text="Incidenti po kategoriji uređaja" />
+                              <MenuItem mnemonicParsing="false" onAction="#izvjesceUkupno" text="Ukupan broj incidenata" />
+                            <MenuItem mnemonicParsing="false" onAction="#izvjescePoKateg" text="Incidenti prema kategoriji" />
                           </items>
                         </Menu>
                       <Menu mnemonicParsing="false" text="Pomoć">

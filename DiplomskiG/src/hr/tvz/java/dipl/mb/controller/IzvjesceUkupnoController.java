@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import hr.tvz.java.dipl.mb.sucelja.MojPopUp;
 import hr.tvz.java.dipl.mb.sucelja.PodatciIncident;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
@@ -29,19 +28,27 @@ public class IzvjesceUkupnoController {
 	private NumberAxis numberAxis;
 
 	@FXML
-	private void prikaziBtn(ActionEvent event) {
-		
-		
+	private void prikaziBtn() {
+				
 		try {
-			dijagram.getData().clear();
-			
-			
-			
-			List<LocalDate> datumiIncidenata = PodatciIncident.dohvatiDatumIncidenata();
-			
+			dijagram.getData().clear();			
+			List<LocalDate> datumiIncidenata = PodatciIncident.dohvatiDatumIncidenata();			
 			int sijecanj = 0;
 			int veljaca = 0;
 			int ozujak = 0;
+			for (LocalDate datumI : datumiIncidenata) {
+				if(datumI.getMonthValue() == 1) {
+					sijecanj++;
+				}
+				if(datumI.getMonthValue() == 2) {
+					veljaca++;
+				}
+				if(datumI.getMonthValue() == 3) {
+					ozujak++;
+				}
+			}
+			
+			//int ozujak = 0;
 			int travanj = 0;
 			int svibanj = 0;
 			int lipanj = 0;
@@ -51,7 +58,6 @@ public class IzvjesceUkupnoController {
 			int listopad = 0;
 			int studeni = 0;
 			int prosinac = 0;
-
 			for (LocalDate datumI : datumiIncidenata) {
 				if(datumI.getMonthValue() == 1) {
 					sijecanj++;
@@ -89,12 +95,8 @@ public class IzvjesceUkupnoController {
 				if(datumI.getMonthValue() == 12) {
 					prosinac++;
 				}
-			}
-			
-			System.out.println("incidneni po mje:"+sijecanj+veljaca+ozujak+travanj+svibanj+lipanj+srpanj+kolovz+rujan+listopad+studeni+prosinac);
-			System.out.println("svibanj:"+sijecanj);
-			System.out.println("svibanj:"+svibanj);
-			
+			}	
+				
 			List<Integer> maxBroj = new ArrayList<Integer>();
 			maxBroj.add(sijecanj);
 			maxBroj.add(veljaca);
@@ -108,13 +110,8 @@ public class IzvjesceUkupnoController {
 			maxBroj.add(listopad);
 			maxBroj.add(studeni);
 			maxBroj.add(prosinac);
-			int najveciMjesec=Collections.max(maxBroj);
-			
-			
-			
-			XYChart.Series<String, Integer> serija = new XYChart.Series<String, Integer>();
-			// povezati dane sa brojem incidenata.. a kad se obabere više od jednog
-			// mjeseca onda prikazati po mjesecu??
+			int najveciMjesec=Collections.max(maxBroj);			
+			XYChart.Series<String, Integer> serija = new XYChart.Series<String, Integer>();			
 			serija.getData().add(new XYChart.Data<String, Integer>("Sijeèanj", sijecanj));
 			serija.getData().add(new XYChart.Data<String, Integer>("Veljaèa", veljaca));
 			serija.getData().add(new XYChart.Data<String, Integer>("Ožuljak", ozujak));
@@ -128,47 +125,23 @@ public class IzvjesceUkupnoController {
 			serija.getData().add(new XYChart.Data<String, Integer>("Studeni", studeni));
 			serija.getData().add(new XYChart.Data<String, Integer>("Prosinac", prosinac));
 			dijagram.getData().add(serija);
-			//dijagram.getXAxis().set
-			//numberAxis.setMinorTickVisible(false);
-			//numberAxis.setTickLabelFormatter(value);
-			//stavi ispred broja i/ili iza
-			//numberAxis.setTickLabelFormatter(new NumberAxis.DefaultFormatter(numberAxis,"da","dB"));
-			
-			
-			//numberAxis.setAutoRanging(false);
-			//numberAxis.setLowerBound(1000);
-			//System.out.println("najveci mj:"+najveciMjesec);
 			numberAxis.setUpperBound(najveciMjesec+1);
 			numberAxis.setTickUnit(1);
-			numberAxis.setMinorTickVisible(false);
-			
-			
-			
+			numberAxis.setMinorTickVisible(false);			
 			for (final XYChart.Data<String, Integer> podatak : serija.getData()) {
 				podatak.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, new EventHandler<MouseEvent>() {
-
 					@Override
 					public void handle(MouseEvent event) {
 						Tooltip.install(podatak.getNode(),
 								new Tooltip(podatak.getXValue() + " = " + String.valueOf(podatak.getYValue())));
-						skriveni.setText(podatak.getXValue() + " = " + String.valueOf(podatak.getYValue()));
-						// System.out.println("a");
+						skriveni.setText(podatak.getXValue() + " = " + String.valueOf(podatak.getYValue()));					
 					}
 				});
-
-//				podatak.getNode().addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, new EventHandler<MouseEvent>() {
-//
-//					@Override
-//					public void handle(MouseEvent event) {
-//						skriveni.setText(" ");
-//					}
-//				});
-
 			}
 		
 		} catch (Exception e) {
 			MojPopUp.porukaPopUp(AlertType.ERROR, "GREŠKA!", "Poruka:"+e.getMessage()+" Uzrok:"+e.getCause());
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 	}

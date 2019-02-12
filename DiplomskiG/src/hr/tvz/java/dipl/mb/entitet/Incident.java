@@ -8,10 +8,10 @@ import hr.tvz.java.dipl.mb.sucelja.ProvjeraPodataka;;
 
 
 public class Incident implements ProvjeraPodataka{
-
-	//Incidente ne možeš brisati samo možeš urediti i zatvroriti!
 	
-	private int brojNaloga; //samo pozitivni brojevi i ne nula	
+	//Incidente ne možeš brisati samo možeš urediti i zatvroriti!	
+	
+	private int brojNaloga; //samo pozitivni brojevi
 	private KategorijeIncidenata kategIncidenta;
 	private String zahvacenUredaji;
 	private VrstaAlarma tipAlarma;
@@ -31,57 +31,35 @@ public class Incident implements ProvjeraPodataka{
 		this.incidentRjesava = incidRjesa;
 		this.rijesen = "NE";
 		this.prioriteti = priotit;		
-	}
-	
-//	public Incident(LocalDate krajDatum, LocalTime krajVrijeme, int brojNaloga) {
-//		this.krajDatum = krajDatum;
-//		this.krajVrijeme = krajVrijeme;		
-//		this.brojNaloga = brojNaloga;		
-//	}
-	
-
-	
+	}	
 	public int getBrojNaloga() {
 		return brojNaloga;
 	}
-
 	public KategorijeIncidenata getKategIncidenta() {
 		return kategIncidenta;
 	}
-
 	public String getZahvacenUredaji() {
 		return zahvacenUredaji;
 	}
-
 	public VrstaAlarma getTipAlarma() {
 		return tipAlarma;
 	}
-
 	public String getNapomena() {
 		return napomena;
 	}
-
 	public String getIncidentRjesava() {
 		return incidentRjesava;
 	}
-
 	public String getRijesen() {
 		return rijesen;
-	}
-	
+	}	
 	protected void setRijesen(String rijesen) {
 		this.rijesen = rijesen;
 	}
-
 	public PrioritetiIncidenta getPrioriteti() {
 		return prioriteti;
 	}
 
-
-//	@Override
-//	public String toString() {
-//		return "Incident [trajanje=" + trajanje + "]";
-//	}
 	
 	
 	

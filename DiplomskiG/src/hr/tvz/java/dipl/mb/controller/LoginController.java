@@ -115,7 +115,7 @@ public class LoginController {
 				}
 			
 			} catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 				MojPopUp.porukaPopUp(AlertType.ERROR,"PRISTUP", e.getMessage()+"/"+e.getCause());
 								
 			}

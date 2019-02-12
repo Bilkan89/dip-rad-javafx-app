@@ -10,9 +10,7 @@ import hr.tvz.java.dipl.mb.sucelja.TrajanjeIncidenta;
 public class KrajIncidenta extends PocetakIncidenta implements TrajanjeIncidenta{
 	
 	private LocalDate krajDatum;
-	private LocalTime krajVrijeme;
-	//private List<String> trajanje;
-	
+	private LocalTime krajVrijeme;	
 	private String trajanjeDana;
 	private String trajanjeVrijeme;
 	
@@ -26,22 +24,17 @@ public class KrajIncidenta extends PocetakIncidenta implements TrajanjeIncidenta
 		this.trajanjeDana = izracunTrajanjaDana(pocetakDatum, pocetakVrijeme, krajDatum, krajVrijeme);
 		this.trajanjeVrijeme = izracunTrajanjaSati(pocetakDatum, pocetakVrijeme, krajDatum, krajVrijeme);
 		setRijesen("DA");
-	}
-	
+	}	
 	public LocalDate getKrajDatum() {
 		return krajDatum;
-	}
-	
+	}	
 	public LocalTime getKrajVrijeme() {
 		return krajVrijeme;
-	}
-	
+	}	
 	public String getTrajanjeDana() {
 		return trajanjeDana;
-	}
-	
+	}	
 	public String getTrajanjeVrijeme() {
 		return trajanjeVrijeme;
-	}
-	
+	}	
 }

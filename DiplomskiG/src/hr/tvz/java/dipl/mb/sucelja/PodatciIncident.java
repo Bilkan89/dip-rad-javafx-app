@@ -20,8 +20,7 @@ public interface PodatciIncident {
 	
 	static List<Incident> dohvatiIncidente() throws Exception{
 		
-		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
-		
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();		
 		List<Incident> incLista = new ArrayList<Incident>();
 		
 		String dohvatiRješeneIncidente = "SELECT incident_pocetak.broj_naloga,pocetak_d,pocetak_t, zahvaceni_uredaji, "
@@ -31,20 +30,15 @@ public interface PodatciIncident {
 		
 		PreparedStatement prepStat = vezaSaBazom.prepareStatement(dohvatiRješeneIncidente);
 		ResultSet dohvatiPodatke = prepStat.executeQuery();
-		//---------------------------------------------------
-		
+		//---------------------------------------------------		
 		KrajIncidenta krajI = null;
-		//LocalDate datum = null;
 		
 		while(dohvatiPodatke.next()) {
-			
-			//Date sqlDate = dohvatiPodatke.getDate("kraj_d"); //metoda (sucelje..konverzija)promjena 	sql date to localdate.. i obratno..
-			//datum = sqlDate.toLocalDate();
 			
 			krajI = new KrajIncidenta(KonverzijaVremena.sqlDateToLocalDate(dohvatiPodatke.getDate("kraj_d")),
 									  KonverzijaVremena.sqlTimeToLocalTime(dohvatiPodatke.getTime("kraj_t")),
 									  dohvatiPodatke.getInt("broj_naloga"), 
-									  KategorijeIncidenata.vratiKategoriju(dohvatiPodatke.getInt("kategorija_id")),  //dohvatiPodatke.getInt("kategorija_id"),
+									  KategorijeIncidenata.vratiKategoriju(dohvatiPodatke.getInt("kategorija_id")),  							//dohvatiPodatke.getInt("kategorija_id"),
 									  dohvatiPodatke.getString("zahvaceni_uredaji"), 
 									  VrstaAlarma.vratiAlarm(dohvatiPodatke.getInt("vrsta_id")),
 									  dohvatiPodatke.getString("napomena"), 
@@ -52,15 +46,12 @@ public interface PodatciIncident {
 									  PrioritetiIncidenta.vratiPrioritet(dohvatiPodatke.getInt("prioritet_id")), 
 									  KonverzijaVremena.sqlDateToLocalDate(dohvatiPodatke.getDate("pocetak_d")),
 									  KonverzijaVremena.sqlTimeToLocalTime(dohvatiPodatke.getTime("pocetak_t")));
-			
-			incLista.add(krajI);
-			
-		}
-		
+			incLista.add(krajI);			
+		}		
 		//---------------------------------------------------------------------------------------------------------------
-		
-		String dohvatiNeRješeneIncidente = "SELECT broj_naloga,pocetak_d,pocetak_t,zahvaceni_uredaji,napomena,incident_rjesava,"
-				+ "vrsta_id,prioritet_id,kategorija_id FROM EVIDENTIRANJE.INCIDENT_POCETAK WHERE rjesen = false;";
+		String dohvatiNeRješeneIncidente = "SELECT broj_naloga,pocetak_d,pocetak_t,zahvaceni_uredaji,napomena,"
+				+ "incident_rjesava,vrsta_id,prioritet_id,kategorija_id FROM EVIDENTIRANJE.INCIDENT_POCETAK "
+				+ "WHERE rjesen = false;";
 		
 		prepStat = vezaSaBazom.prepareStatement(dohvatiNeRješeneIncidente);
 		dohvatiPodatke = prepStat.executeQuery();
@@ -80,12 +71,11 @@ public interface PodatciIncident {
 											KonverzijaVremena.sqlTimeToLocalTime(dohvatiPodatke.getTime("pocetak_t")));
 			incLista.add(0,pocetakI);
 			
-		}
-		
-		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
-		
+		}		
+		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);		
 		return incLista;
 	}
+	
 	
 	static void zatvoriIncident(KrajIncidenta krajInc) throws Exception {
 		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
@@ -103,9 +93,7 @@ public interface PodatciIncident {
 		prepSt.setBoolean(1, vratiBoolean(krajInc.getRijesen()));
 		prepSt.setInt(2, krajInc.getBrojNaloga());
 		prepSt.executeUpdate();
-		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
-		
-		
+		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);		
 	}
 	
 	static void spremiPocetniIncident(PocetakIncidenta pocIncident) throws Exception{
@@ -123,7 +111,7 @@ public interface PodatciIncident {
 		stmtPrep.setString(4, pocIncident.getZahvacenUredaji());
 		stmtPrep.setString(5, pocIncident.getNapomena());
 		stmtPrep.setString(6, pocIncident.getIncidentRjesava());
-		stmtPrep.setBoolean(7, vratiBoolean(pocIncident.getRijesen()));//dodat metodu
+		stmtPrep.setBoolean(7, vratiBoolean(pocIncident.getRijesen()));
 		stmtPrep.setInt(8, VrstaAlarma.vratiIntAlarm(pocIncident.getTipAlarma()));
 		stmtPrep.setInt(9, 1);
 		stmtPrep.setInt(10, PrioritetiIncidenta.vratiIntPrioriteta(pocIncident.getPrioriteti()));
@@ -143,20 +131,15 @@ public interface PodatciIncident {
 	
 	static List<Integer> dohvatiBrojeveIncidenta() throws Exception{
 		
-		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();
-		
-		List<Integer> brojeviIncidenta = new ArrayList<Integer>();
-		
-		String dohvatiBrojeve = "SELECT broj_naloga FROM EVIDENTIRANJE.INCIDENT_POCETAK";
-		
+		Connection vezaSaBazom = KomunikacijaSaBazom.konekcijaDB();		
+		List<Integer> brojeviIncidenta = new ArrayList<Integer>();		
+		String dohvatiBrojeve = "SELECT broj_naloga FROM EVIDENTIRANJE.INCIDENT_POCETAK";		
 		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiBrojeve);
-		ResultSet dohvati = prepS.executeQuery();
+		ResultSet dohvati = prepS.executeQuery();		
 		
-		while(dohvati.next()) {
-			
-			brojeviIncidenta.add(dohvati.getInt("broj_naloga"));
-			
-		}
+		while(dohvati.next()) {			
+			brojeviIncidenta.add(dohvati.getInt("broj_naloga"));			
+		}		
 		KomunikacijaSaBazom.zatvoriKonekciju(vezaSaBazom);
 		return brojeviIncidenta;
 	}
@@ -188,12 +171,10 @@ public interface PodatciIncident {
 		PreparedStatement prepS = vezaSaBazom.prepareStatement(dohvatiUkupno);
 		ResultSet dohvati = prepS.executeQuery();
 		int ukupno = 0;
-		while(dohvati.next()) {
-			
-			ukupno = dohvati.getInt(1);
-			
-		}
 		
+		while(dohvati.next()) {			
+			ukupno = dohvati.getInt(1);			
+		}		
 		return ukupno;
 	}
 

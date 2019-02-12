@@ -195,78 +195,47 @@ public class PregledIncidenataController {
 	
 	@FXML
 	private void filtrirajBtn() {
-		
-		
+			
 		try {
 			List<Incident> testListaPocetak = PodatciIncident.dohvatiIncidente();
 			List<Incident> sortiraniIncidneti = new ArrayList<Incident>();
-			
-		//	for(Incident incident :  testListaPocetak) {
-			
 			//------------------------------------------------------------------------------------------
 				if(mrezniCheckBox.isSelected()) {
 					for(Incident incident :  testListaPocetak) {
 						if(incident.getKategIncidenta() == KategorijeIncidenata.MREŽNI)
 							sortiraniIncidneti.add(incident);
 					}					
-				}
-				
-				
+				}				
 				if(rijeseniCheckBox.isSelected()) {
 					for(Incident incident :  testListaPocetak) {
 						if(incident.getRijesen() == "DA")
 							sortiraniIncidneti.add(incident);
 					}					
-				}
-				
-				
+				}				
 				if(nerijeseniCheckBox.isSelected()) {
 					for(Incident incident :  testListaPocetak) {
 						if(incident.getRijesen() == "NE")
 							sortiraniIncidneti.add(incident);
 					}					
-				}
-				
+				}				
 				if(tkCheckBox.isSelected()) {
 					for(Incident incident :  testListaPocetak) {
 						if(incident.getKategIncidenta() == KategorijeIncidenata.TELEKOMUNIKACIJSKI)
 							sortiraniIncidneti.add(incident);
 					}					
-				}
-				
+				}				
 				if(serverCheckBox.isSelected()) {
 					for(Incident incident :  testListaPocetak) {
 						if(incident.getKategIncidenta() == KategorijeIncidenata.POSLUŽITELJSKI)
 							sortiraniIncidneti.add(incident);
 					}					
-				}
-				
+				}				
 				sortiraniIncidneti = sortiraniIncidneti.stream().distinct().collect(Collectors.toList());
 			//------------------------------------------------------------------------------------------
-		
-				
-				
-				
-			
-//			List<Casopis> DohvaceniCasopisi;
-//			try {
-//				DohvaceniCasopisi = PodaciIzBazeCasopisi.dohvatiCasopiseIzBaze();
-//				List<Casopis> ListaCasopisaFilter = new ArrayList<Casopis>();
-//				if (UnosCasopisaTextField.getText().isEmpty() == false) {
-//					ListaCasopisaFilter = DohvaceniCasopisi.stream()
-//							.filter(e -> e.getNazivPublikacije()
-//									.contains(UnosCasopisaTextField.getText()))
-//							.collect(Collectors.toList());
-//				} else {
-//					ListaCasopisaFilter = DohvaceniCasopisi;
-//				}
-			
-			
-			
+								
 			ObservableList<Incident> listaZaPrikaz = FXCollections.observableArrayList(sortiraniIncidneti);	
-			
 			tabIncidenti.setItems(listaZaPrikaz);
-			
+		
 		} catch (Exception e) {
 //			System.out.println("GREŠKA!! ERROR!! /n"+
 //							   "DOGODILA SE GREŠKA: "+e.getMessage()+" n/ "+
@@ -282,7 +251,8 @@ public class PregledIncidenataController {
 			odabrani = tabIncidenti.getSelectionModel().getSelectedItem();
 			System.out.println(odabrani.getBrojNaloga());
 			if(odabrani instanceof KrajIncidenta) {
-				MojPopUp.porukaPopUp(AlertType.WARNING,"Upozorenje!", "Incident sa brojem naloga:  "+odabrani.getBrojNaloga()+" je već zatvoren!" );
+				MojPopUp.porukaPopUp(AlertType.WARNING,"Upozorenje!",
+						"Incident sa brojem naloga:  "+odabrani.getBrojNaloga()+" je već zatvoren!" );
 			}else {			
 				//PocetniZaslonController.otvoriNoviProzor(lokacijaFxml);	
 				

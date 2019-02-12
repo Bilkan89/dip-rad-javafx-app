@@ -22,8 +22,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class UnosIncidentaController {
-
-	
 	
 	@FXML
 	private TextField brNaloga;
@@ -101,26 +99,20 @@ public class UnosIncidentaController {
 		if (datumPocetka.getValue() == null) {
 			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
 			return;
-		}
-		
-		
-		
+		}		
 		//----------------------------------------------------------------------------------------------
-		try {
-			
+		try {			
 			List<Integer> listaNaloga =  PodatciIncident.dohvatiBrojeveIncidenta();
+			
 			for(Integer brojN : listaNaloga) {
 				if(brojN == Integer.valueOf(brNaloga.getText())) {
-					MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nalog pod brojem: "+brNaloga.getText()+" postoji! Molim unesite drugi broj!");
+					MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", 
+							"Nalog pod brojem: "+brNaloga.getText()+" postoji! Molim unesite drugi broj!");
 					brNaloga.clear();
 					return;
 				}
-			}
-			
-			
-			Stage pozornica = (Stage) brNaloga.getScene().getWindow();
-			
-			
+			}			
+			Stage pozornica = (Stage) brNaloga.getScene().getWindow();			
 			
 			PocetakIncidenta noviIn = new PocetakIncidenta(Integer.valueOf(brNaloga.getText()),
 														   katIncidentaChoiceBox.getValue(), 
@@ -130,7 +122,8 @@ public class UnosIncidentaController {
 														   incidentRjesava.getText(), 
 														   prioritetChoiceBox.getValue(), 
 														   datumPocetka.getValue(), 
-														   KonverzijaVremena.stringToLocalTime(satPocetka.getText(),minPocetka.getText()));
+														   KonverzijaVremena.stringToLocalTime(
+																   satPocetka.getText(),minPocetka.getText()));
 			
 			PodatciIncident.spremiPocetniIncident(noviIn);
 			
@@ -142,14 +135,13 @@ public class UnosIncidentaController {
 			
 			
 		} catch (Exception e) {
-			System.out.println("GREŠKA!! ERROR!! /n"
-				  	  +"DOGODILA SE GREŠKA: "+e.getMessage()+" n/ "
-				  	  +"UZROK: "+e.getCause()+" /n "
-				  	  +"PORUKA: "+e.toString());
-			e.printStackTrace();
+			MojPopUp.porukaPopUp(AlertType.ERROR,"GREŠKA!!", "Poruka greške: "+e.getMessage());
+			return;
+			//e.printStackTrace();
 		}    	
     }
 
+    
     @FXML
     private void obrisiPodatke(ActionEvent event) {
     	brNaloga.clear();

@@ -41,37 +41,30 @@ public class ZatvoriIncidentController {
 		datumZavrsetka.setValue(LocalDate.now());
 		satZavrsetka.setText(String.valueOf(LocalTime.now().getHour()));
 		minZavrsetka.setText(String.valueOf(LocalTime.now().getMinute()));
-	}
-	
+	}	
 	
 	@FXML
 	public void unesiZavrsetakIncidenta() {
 //		zavDatum = datumZavrsetka.getValue();
 		if(satZavrsetka.getText().isEmpty()) {
-			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
+			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu uneseni svi potrebni podatci!");
 			//alarmPraznoPolje();
 			return;
-		}
-		
+		}		
 		if (minZavrsetka.getText().isEmpty()) {
-			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
+			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu uneseni svi potrebni podatci!");
 			//alarmPraznoPolje();
 			return;
-		}
-		
+		}		
 		if (datumZavrsetka.getValue() == null) {
-			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu unešeni svi potrebni podatci!");
+			MojPopUp.porukaPopUp(AlertType.WARNING,"UPOZORENJE!!", "Nisu uneseni svi potrebni podatci!");
 			//alarmPraznoPolje();
 			return;
 		}
-		
-		
-
 		try {
-			Stage pozornica = (Stage) satZavrsetka.getScene().getWindow();
-			
-			//System.out.println("Zavrsi kontroler dohvati metoda"+pocetniI.getBrojNaloga());
-			LocalTime zavVrijeme = KonverzijaVremena.stringToLocalTime(satZavrsetka.getText(), minZavrsetka.getText());
+			Stage pozornica = (Stage) satZavrsetka.getScene().getWindow();			
+			LocalTime zavVrijeme = KonverzijaVremena.stringToLocalTime(satZavrsetka.getText(), 
+					minZavrsetka.getText());
 			KrajIncidenta iKraj = new KrajIncidenta(datumZavrsetka.getValue(),
 													zavVrijeme,
 													pocetniI.getBrojNaloga(),
@@ -82,15 +75,14 @@ public class ZatvoriIncidentController {
 													pocetniI.getIncidentRjesava(), 
 													pocetniI.getPrioriteti(), 
 													pocetniI.getPocetakDatum(), 
-													pocetniI.getPocetakVrijeme());
-			
-			PodatciIncident.zatvoriIncident(iKraj);
-			
-			MojPopUp.porukaPopUp(AlertType.INFORMATION,"Inforativna poruka", "Incident sa brojem naloga: "+iKraj.getBrojNaloga()+
+													pocetniI.getPocetakVrijeme());			
+			PodatciIncident.zatvoriIncident(iKraj);			
+			MojPopUp.porukaPopUp(AlertType.INFORMATION,"Inforativna poruka", 
+					"Incident sa brojem naloga: "+iKraj.getBrojNaloga()+
 					"je uspješno zatvoren i dodan u bazu podataka!!");
-
 			tabView.getItems().remove(pocetniI);
 			pozornica.close();
+			
 		} catch (Exception e) {
 			MojPopUp.porukaPopUp(AlertType.WARNING, "GREŠKA!!","Poruka: "+ e.getMessage()+"Uzrok: "+e.getCause());
 		}
@@ -133,10 +125,8 @@ public class ZatvoriIncidentController {
 	}
 	
 	public void dohvatiOdabraniIncident(Incident odabrani) {
-		pocetniI = (PocetakIncidenta) odabrani;
-		//System.out.println("Zavrsi kontroler dohvati metoda"+pocetniI.getBrojNaloga());
+		pocetniI = (PocetakIncidenta) odabrani;		
 	}
-
 	
 	@FXML
 	public void odustaniUnos() {
@@ -145,10 +135,8 @@ public class ZatvoriIncidentController {
 		pozornica.close();
 	}
 
-
 	public void dohvatiTabView(TableView<Incident> tabIncidenti) {
-		tabView = tabIncidenti;
-		
+		tabView = tabIncidenti;		
 	}
 
 //	public LocalDate getZavDatum() {

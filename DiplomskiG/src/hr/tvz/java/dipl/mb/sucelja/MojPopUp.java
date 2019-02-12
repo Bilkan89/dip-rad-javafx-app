@@ -37,17 +37,11 @@ public interface MojPopUp {
 		 
 	};
 
-	static void porukaPopUp(Alert.AlertType tipAlarma,String Title,String sadrzajPoruke ){
-	
+	static void porukaPopUp(Alert.AlertType tipAlarma,String Title,String sadrzajPoruke ){	
 	Alert alert = new Alert(tipAlarma);
 	alert.setTitle(Title+"!!");
 	alert.setContentText(sadrzajPoruke);
-	alert.showAndWait();
-	
-	//alert.setContentText("Korisnik " + obrKorisnik.getIme()+" "
-	//	+ obrKorisnik.getPrezime()+" je uspješno obrisan!");
-	
-	
+	alert.showAndWait();	
 	}
 	
 	

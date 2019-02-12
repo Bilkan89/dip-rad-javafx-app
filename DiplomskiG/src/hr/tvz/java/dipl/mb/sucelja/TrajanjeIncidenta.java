@@ -8,21 +8,21 @@ import java.time.LocalTime;
 public interface TrajanjeIncidenta {
 
 		
-	default String izracunTrajanjaDana(LocalDate pocetakDatum, LocalTime pocetakVrijeme, LocalDate krajDatum, LocalTime krajVrijeme) {
+	default String izracunTrajanjaDana(LocalDate pocetakDatum, LocalTime pocetakVrijeme, 
+			LocalDate krajDatum, LocalTime krajVrijeme) {
 		
 		String trajanje = "";
 		LocalDateTime pocetakIncidenta = LocalDateTime.of(pocetakDatum, pocetakVrijeme );
-		LocalDateTime krajIncidenta = LocalDateTime.of(krajDatum, krajVrijeme );
-		
+		LocalDateTime krajIncidenta = LocalDateTime.of(krajDatum, krajVrijeme );		
 		Duration razlikaSati = Duration.between(pocetakIncidenta, krajIncidenta);
 		//-----------------------------------------------------
 		long daniUkupno = Math.abs(razlikaSati.toDays());
-		trajanje = String.valueOf(daniUkupno);
-		
+		trajanje = String.valueOf(daniUkupno);		
 		return trajanje;
 	}
 	
-	default String izracunTrajanjaSati(LocalDate pocetakDatum, LocalTime pocetakVrijeme, LocalDate krajDatum, LocalTime krajVrijeme) {
+	default String izracunTrajanjaSati(LocalDate pocetakDatum, LocalTime pocetakVrijeme, 
+			LocalDate krajDatum, LocalTime krajVrijeme) {
 		
 		String trajanje = "";
 		LocalDateTime pocetakIncidenta = LocalDateTime.of(pocetakDatum, pocetakVrijeme );
@@ -36,13 +36,12 @@ public interface TrajanjeIncidenta {
 		//-----------------------------------------------------
 		long ostatakSati = satiUkupno - (daniUkupno * 24);
 		long ostatakMinuta = minUkupno - (satiUkupno * 60);
-		//-----------------------------------------------------	
-		
-		trajanje = String.valueOf(ostatakSati)+":"+String.valueOf(ostatakMinuta);
-		//System.out.println(trajanje);
-		
+		//-----------------------------------------------------			
+		trajanje = String.valueOf(ostatakSati)+":"+String.valueOf(ostatakMinuta);		
 		return trajanje;
 	}
+	
+	
 	/**
 	 * 
 	 * DateTimeFormatter timeFormater = DateTimeFormatter.ofPattern("HH:mm");

@@ -1,0 +1,39 @@
+[33mcommit 22fd8b63e206ae657ec4d18ba65423f99736309d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Matej Bilic <mbilic@tvz.hr>
+Date:   Thu Jan 17 10:04:02 2019 +0100
+
+    Računalo - Uređivanje koda
+
+[33mcommit 6a9794a84a01d8ff1607710aa2499472d7a5b07d[m
+Author: Matej Bilic <mbilic@tvz.hr>
+Date:   Tue Jan 15 19:25:44 2019 +0100
+
+    Stolno računalo - rješavanje "Warning" poruka.
+
+[33mcommit 0e7762737f130d2e4bb99f6e0bd63b1f318ceb84[m
+Author: Matej Bilic <mbilic@tvz.hr>
+Date:   Sat Jan 12 00:50:37 2019 +0100
+
+    Stolno racunalo - fullscreen,provjera id-a,pristup,dijagrami,
+    
+    Dodana provjera unosa id, dodan gumb za fullscreen, dodana provjera
+    pristupa aplikaciji,datum pocetni dodan, velicina prozora aplikacije
+    ogranicena sa velicinom monitora.
+
+[33mcommit 34633cef95e613800f6d6449f92f1a712917b950[m
+Author: Matej Bilic <mbilic@tvz.hr>
+Date:   Wed Jan 9 22:25:29 2019 +0100
+
+    Provjera unosa - provjerava se da li postoji nalog s tim brojem.
+
+[33mcommit 62b8ad6bc418953c7e2467c5fbb0447a803c5540[m
+Author: mbilic <mbilic@Mrezan>
+Date:   Wed Jan 9 21:17:34 2019 +0100
+
+    Obrisan gitignore zbog lakšeg prebacivanja
+
+[33mcommit 608ad771784d0088e38107f3ff7dcb27ecb26894[m
+Author: Matej Bilic <mbilic@tvz.hr>
+Date:   Wed Jan 9 19:55:08 2019 +0100
+
+    Prvi inicijalni commit!
